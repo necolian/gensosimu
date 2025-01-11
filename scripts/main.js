@@ -3,6 +3,7 @@ var config = {
   type: Phaser.AUTO,
   width: 800, //横サイズ
   height: 600, //縦サイズ
+  autoCenter: "Phaser.Scale.Center.CENTER_BOTH", //中央に配置
   scene: {
     preload: preload,
     create: create,
