@@ -1,20 +1,16 @@
-//画面サイズを4:3に設定
-let height;
-let width;
+let canvas_height;
+let canvas_width;
+let window_height = window.innerHeight;
+let window_width = window.innerWidth;
 
-if (window.innerWidth > window.innerHeight) {
-  height = window.innerHeight;
-  width = height / 3 * 4;
-}else{
-  width = window.innerWidth;
-  height = width /4 * 3
-}
+//キャンバスサイズを調整
+setCanvasSize();
 
 // 設定用変数 jsonで設定
 var config = {
   type: Phaser.AUTO,
-  width: width, // 横サイズ
-  height: height, // 縦サイズ
+  width: canvas_width, // 横サイズ
+  height: canvas_height, // 縦サイズ
   autoCenter: Phaser.Scale.Center.CENTER_HORIZONTALLY, // 中央に配置
   scene: {
     preload: preload,
@@ -26,11 +22,23 @@ var config = {
 // インスタンス作成
 var game = new Phaser.Game(config);
 
+window.addEventListener("resize",() => {
+  if (window_width === window.innerWidth) return
+
+  window_width = window.innerWidth;
+  window_height = window.innerHeight;
+
+  setCanvasSize();
+  this.scale.resize(canvas_width,canvas_height);
+});
+
+/* ------------------------------- */
+
 // 描画
 function create() {
 
   //背景を設定
-  const background = this.add.image(width/2, height/2, "background");
+  const background = this.add.image(canvas_width/2, canvas_height/2, "background");
   resize(background); //画像をキャンバスに合わせてリサイズ
 
 }
@@ -40,6 +48,18 @@ function update() {
   
 }
 
+/* ------------------------------- */
+
 function resize(image) {
   image.setScale(width/800,height/600);
+}
+
+function setCanvasSize () {
+  if (window.innerWidth > window.innerHeight) {
+    canvas_height = window.innerHeight;
+    canvas_width = canvas_height / 3 * 4;
+  }else{
+    canvas_width = window.innerWidth;
+    canvas_height = canvas_width /4 * 3
+  }
 }
