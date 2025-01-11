@@ -1,4 +1,4 @@
-import { preload } from "./assets-preload.js"
+import "./assets-preload.js"
 
 //設定用変数 jsonで設定
 var config = {
@@ -12,6 +12,8 @@ var config = {
     update: update
   }
 };
+
+pre-alert();
 
 //インスタンス作成
 var game = new Phaser.Game(config);
