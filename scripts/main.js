@@ -29,7 +29,8 @@ window.addEventListener("resize",() => {
 
   window_width = window.innerWidth;
   window_height = window.innerHeight;
-
+  
+  resize(["background"])
   setCanvasConfig();
 });
 
@@ -40,7 +41,7 @@ function create() {
 
   //背景を設定
   const background = this.add.image(canvas_width/2, canvas_height/2, "background");
-  resize(background); //画像をキャンバスに合わせてリサイズ
+  resize(["background"]); //画像をキャンバスに合わせてリサイズ
 
 }
 
@@ -51,8 +52,10 @@ function update() {
 
 /* ------------------------------- */
 
-function resize(image) {
-  image.setScale(width/800,height/600);
+function resize(array) {
+  array.forEach(function (value) {
+    value.setScale(width/800,height/600);
+  });
 }
 
 function setCanvasConfig () {
