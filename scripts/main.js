@@ -1,6 +1,9 @@
 //画面サイズを4:3に設定
 let height = window.innerHeight;
 let width = height / 3 * 4;
+if (height > width) {
+  [height,width] = [width,height];
+}
 
 // 設定用変数 jsonで設定
 var config = {
