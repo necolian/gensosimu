@@ -7,7 +7,7 @@ var config = {
   type: Phaser.AUTO,
   width: width, // 横サイズ
   height: height, // 縦サイズ
-  autoCenter: Phaser.Scale.Center.CENTER_BOTH, // 中央に配置
+  autoCenter: Phaser.Scale.Center.CENTER_HORIZONTALLY, // 中央に配置
   scene: {
     preload: preload,
     create: create,
