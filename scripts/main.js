@@ -18,7 +18,10 @@ var game = new Phaser.Game(config);
 
 //描画
 function create() {
-
+  
+  //背景を設定
+  this.add.image(400,300,"background");
+  
 }
 
 //更新
