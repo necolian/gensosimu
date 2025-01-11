@@ -12,3 +12,15 @@ var config = {
 
 //インスタンス作成
 var game = new Phaser.Game(config);
+
+function preload() {
+
+}
+
+function create() {
+
+}
+
+function update() {
+  
+}
