@@ -1,12 +1,10 @@
-//画面サイズを4:3に設定
-let height = window.innerHeight - 5;
-let width = height / 3 * 4;
+import { preload } from "./assets-preload.js"
 
 //設定用変数 jsonで設定
 var config = {
   type: Phaser.AUTO,
-  width: width, //横サイズ
-  height: height, //縦サイズ
+  width: 800, //横サイズ
+  height: 600, //縦サイズ
   autoCenter: "Phaser.Scale.Center.CENTER_BOTH", //中央に配置
   scene: {
     preload: preload,
@@ -17,11 +15,6 @@ var config = {
 
 //インスタンス作成
 var game = new Phaser.Game(config);
-
-//画像プリロード
-function preload() {
-  
-}
 
 //描画
 function create() {
