@@ -6,5 +6,3 @@ function preload() {
 function pre_alert(){
   alert("pre-alert");
 }
-
-export {preload,pre_alert}
