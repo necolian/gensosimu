@@ -30,7 +30,6 @@ window.addEventListener("resize",() => {
   window_height = window.innerHeight;
 
   setCanvasConfig();
-  this.scale.resize(canvas_width,canvas_height);
 });
 
 /* ------------------------------- */
@@ -60,14 +59,21 @@ function setCanvasConfig () {
     canvas_width = window.innerWidth;
     canvas_height = canvas_width /4 * 3
     auto_center = Phaser.Scale.Center.CENTER_VERTICALLY;
-    return;
   }else if (window.innerWidth === window.innerHeight) {
+    set();
     auto_center = Phaser.Scale.Center.CENTER_BOTH;
   }else{
+    set();
     auto_center = Phaser.Scale.Center.CENTER_HORIZONTALLY;
   }
 
-  canvas_height = window.innerHeight;
-  canvas_width = canvas_height / 3 * 4;
+  config["width"] = canvas_width;
+  config["height"] = canvas_height;
+  config["autoCenter"] = auto_center;
+
+  function set() {
+    canvas_height = window.innerHeight;
+    canvas_width = canvas_height / 3 * 4;
+  }
   
 }
