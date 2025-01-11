@@ -1,0 +1,10 @@
+body {
+  background-color: black; /*ついでに背景は黒く*/
+}
+
+.canvas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
