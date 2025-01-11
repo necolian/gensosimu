@@ -2,7 +2,7 @@ body {
   background-color: black; /*ついでに背景は黒く*/
 }
 
-.canvas {
+canvas {
   position: absolute;
   top: 50%;
   left: 50%;
