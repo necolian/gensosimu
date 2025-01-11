@@ -1,5 +1,5 @@
 //画面サイズを4:3に設定
-let height = window.innerHeight -15;
+let height = window.innerHeight - 5;
 let width = height / 3 * 4;
 
 //設定用変数 jsonで設定
