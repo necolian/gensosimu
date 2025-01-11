@@ -15,15 +15,15 @@ var game = new Phaser.Game(config);
 
 //画像プリロード
 function preload() {
-  alert("preload");
+  
 }
 
 //描画
 function create() {
-  alert("create");
+
 }
 
 //更新
 function update() {
-  alert("update");
+
 }
