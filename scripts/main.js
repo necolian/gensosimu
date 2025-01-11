@@ -1,3 +1,4 @@
+var config = new Object;
 let auto_center;
 let canvas_height;
 let canvas_width;
@@ -8,7 +9,7 @@ let window_width = window.innerWidth;
 setCanvasConfig();
 
 // 設定用変数 jsonで設定
-var config = {
+config = {
   type: Phaser.AUTO,
   width: canvas_width, // 横サイズ
   height: canvas_height, // 縦サイズ
