@@ -1,10 +1,11 @@
+let auto_center;
 let canvas_height;
 let canvas_width;
 let window_height = window.innerHeight;
 let window_width = window.innerWidth;
 
 //キャンバスサイズを調整
-setCanvasSize();
+setCanvasConfig();
 
 // 設定用変数 jsonで設定
 var config = {
@@ -28,7 +29,7 @@ window.addEventListener("resize",() => {
   window_width = window.innerWidth;
   window_height = window.innerHeight;
 
-  setCanvasSize();
+  setCanvasConfig();
   this.scale.resize(canvas_width,canvas_height);
 });
 
@@ -54,12 +55,19 @@ function resize(image) {
   image.setScale(width/800,height/600);
 }
 
-function setCanvasSize () {
-  if (window.innerWidth > window.innerHeight) {
-    canvas_height = window.innerHeight;
-    canvas_width = canvas_height / 3 * 4;
-  }else{
+function setCanvasConfig () {
+  if (window.innerWidth < window.innerHeight) {
     canvas_width = window.innerWidth;
     canvas_height = canvas_width /4 * 3
+    auto_center = Phaser.Scale.Center.CENTER_VERTICALLY;
+    return;
+  }else if (window.innerWidth === window.innerHeight) {
+    auto_center = Phaser.Scale.Center.CENTER_BOTH;
+  }else{
+    auto_center = Phaser.Scale.Center.CENTER_HORIZONTALLY;
   }
+
+  canvas_height = window.innerHeight;
+  canvas_width = canvas_height / 3 * 4;
+  
 }
