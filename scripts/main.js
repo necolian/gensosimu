@@ -35,3 +35,9 @@ function update() {
 function resize(image) {
   image.setScale(width/800,height/600);
 }
+
+//画面サイズが変わったときに調整
+window.addEventListener("resize",() => {
+  height = window.innerHeight;
+  scene.scale.resize(height/3*4, height);
+});
