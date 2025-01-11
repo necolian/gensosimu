@@ -1,5 +1,3 @@
-import { preload, pre_alert } from "./assets-preload.js";
-
 // 設定用変数 jsonで設定
 var config = {
   type: Phaser.AUTO,
