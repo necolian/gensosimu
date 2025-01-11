@@ -1,8 +1,12 @@
+//画面サイズを4:3に設定
+let height = window.innerHeight() -90;
+let width = height / 3 * 4;
+
 //設定用変数 jsonで設定
 var config = {
   type: Phaser.AUTO,
-  width: 800, //横サイズ
-  height: 600, //縦サイズ
+  width: width, //横サイズ
+  height: height, //縦サイズ
   autoCenter: "Phaser.Scale.Center.CENTER_BOTH", //中央に配置
   scene: {
     preload: preload,
