@@ -20,10 +20,18 @@ var game = new Phaser.Game(config);
 
 // 描画
 function create() {
-  // 背景を設定
-  this.add.image(width/2, height/2, "background");
+
+  //背景を設定
+  const background = this.add.image(width/2, height/2, "background");
+  resize(background); //画像をキャンバスに合わせてリサイズ
+
 }
 
 // 更新
 function update() {
+  
+}
+
+function resize(image) {
+  image.setScale(width/800,height/600);
 }
