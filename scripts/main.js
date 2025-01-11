@@ -14,16 +14,16 @@ var config = {
 var game = new Phaser.Game(config);
 
 //画像プリロード
-/*function preload() {
+function preload() {
   
-}*/
+}
 
 //描画
-function create() {
+/*function create() {
   
 }
 
 //更新
 function update() {
   
-}
+}*/
