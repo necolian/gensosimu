@@ -49,9 +49,12 @@ function update() {
 
 function resize(array) {
   array.forEach(function (value) {
-    const size = getImageSize(value);
-    alert(size);
-    value.setScale(width/size[0],height/size[1]);
+    getImageSize(value).then(([w,h]) => {
+      alert([w,h]);
+      value.setScale(width/w,height/h);
+    }).catch(() => {
+      console.error();
+    });
   });
 }
 
