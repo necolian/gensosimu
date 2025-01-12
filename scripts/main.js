@@ -49,11 +49,11 @@ function update() {
 
 async function resize(array) {
   alert("resize");
-  array.forEach(function (value,index,array) {
+  for (let value in array) {
     const [w,h] = await getImageSize(value);
     alert([w,h]);
     value.setScale(width/w,height/h);
-  });
+  }
 }
 
 function setCanvasConfig () {
