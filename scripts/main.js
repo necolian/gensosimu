@@ -48,7 +48,8 @@ function update() {
 /* ------------------------------- */
 
 async function resize(array) {
-  array.forEach(function (value) {
+  alert("resize");
+  array.forEach(function (value,index,array) {
     const [w,h] = await getImageSize(value);
     alert([w,h]);
     value.setScale(width/w,height/h);
