@@ -47,14 +47,11 @@ function update() {
 
 /* ------------------------------- */
 
-function resize(array) {
+async function resize(array) {
   array.forEach(function (value) {
-    getImageSize(value).then(([w,h]) => {
-      alert([w,h]);
-      value.setScale(width/w,height/h);
-    }).catch(() => {
-      console.error();
-    });
+    const [w,h] = await getImageSize(value);
+    alert([w,h]);
+    value.setScale(width/w,height/h);
   });
 }
 
