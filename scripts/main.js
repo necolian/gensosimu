@@ -85,10 +85,9 @@ function setCanvasConfig () {
 function getImageSize(url) {
   return new Promise((resolve, reject) => {
     let img = new Image();
-    img.src = URL.createObjectURL(url);
+    img.src = url;
     
     img.onload = () => {
-      URL.revokeObjectURL(img.src); // タイポを修正
       resolve([img.width, img.height]); // サイズを解決する
     };
     
