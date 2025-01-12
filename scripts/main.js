@@ -54,7 +54,8 @@ function update() {
 
 function resize(array) {
   array.forEach(function (value) {
-    value.setScale(width/800,height/600);
+    const size = getImageSize(value);
+    value.setScale(width/size[0],height/size[1]);
   });
 }
 
@@ -75,9 +76,18 @@ function setCanvasConfig () {
   config["height"] = canvas_height;
   config["autoCenter"] = auto_center;
 
+  alert(config);
+
   function set() {
     canvas_height = window.innerHeight;
     canvas_width = canvas_height / 3 * 4;
   }
   
+}
+
+function getImageSize(url) {
+  let img = new Image();
+  img.src = url;
+
+  return [img.width,img.height];
 }
