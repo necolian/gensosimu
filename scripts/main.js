@@ -24,11 +24,6 @@ config = {
 // インスタンス作成
 var game = new Phaser.Game(config);
 
-function bodyResized() {
-  setCanvasConfig();
-  resize(["background"]);
-}
-
 /* ------------------------------- */
 
 // 描画
@@ -36,7 +31,7 @@ function create() {
 
   //背景を設定
   const background = this.add.image(canvas_width/2, canvas_height/2, "background");
-  resize(["background"]); //画像をキャンバスに合わせてリサイズ
+  
 
 }
 
@@ -46,15 +41,6 @@ function update() {
 }
 
 /* ------------------------------- */
-
-async function resize(array) {
-  alert("resize");
-  for (let value in array) {
-    const [w,h] = await getImageSize(value);
-    alert([w,h]);
-    value.setScale(width/w,height/h);
-  }
-}
 
 function setCanvasConfig () {
   if (window.innerWidth < window.innerHeight) {
@@ -83,16 +69,14 @@ function setCanvasConfig () {
 }
 
 function getImageSize(url) {
-  return new Promise((resolve, reject) => {
-    let img = new Image();
-    img.src = url;
-    
-    img.onload = () => {
-      resolve([img.width, img.height]); // サイズを解決する
-    };
-    
-    img.onerror = (error) => {
-      reject(error); // エラー処理を追加
-    };
-  });
+  let img = new Image();
+  img.src = url;
+
+  img.onload = () => {
+    return [img.width, img.height]; // サイズを解決する
+  };
+  
+  img.onerror = (error) => {
+    reject(error); // エラー処理を追加
+  };
 }
