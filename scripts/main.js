@@ -76,7 +76,7 @@ function setCanvasConfig () {
   config["height"] = canvas_height;
   config["autoCenter"] = auto_center;
 
-  alert(config.text);
+  alert(config.toString);
 
   function set() {
     canvas_height = window.innerHeight;
