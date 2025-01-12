@@ -28,11 +28,11 @@ var game = new Phaser.Game(config);
 
 // 描画
 function create() {
-
+  
   //背景を設定
   const background = this.add.image(canvas_width/2, canvas_height/2, "background");
+  background.setScale(canvas_width/800,canvas_height/600);
   
-
 }
 
 // 更新
@@ -66,17 +66,4 @@ function setCanvasConfig () {
     canvas_width = canvas_height / 3 * 4;
   }
   
-}
-
-function getImageSize(url) {
-  let img = new Image();
-  img.src = url;
-
-  img.onload = () => {
-    return [img.width, img.height]; // サイズを解決する
-  };
-  
-  img.onerror = (error) => {
-    reject(error); // エラー処理を追加
-  };
 }
