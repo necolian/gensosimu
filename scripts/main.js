@@ -50,7 +50,7 @@ function update() {
 function resize(array) {
   array.forEach(function (value) {
     const size = getImageSize(value);
-    alert(JSON.stringify(size))
+    alert(size);
     value.setScale(width/size[0],height/size[1]);
   });
 }
