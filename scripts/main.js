@@ -30,7 +30,7 @@ window.addEventListener("resize",() => {
   window_width = window.innerWidth;
   window_height = window.innerHeight;
   
-  resize(["background"])
+  resize(["background"]);
   setCanvasConfig();
 });
 
