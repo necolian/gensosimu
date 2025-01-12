@@ -83,7 +83,10 @@ function setCanvasConfig () {
 
 function getImageSize(url) {
   let img = new Image();
-  img.src = url;
-
-  return [img.width,img.height];
+  img.src = URL.createObjectURL(url);
+  
+  img.onload = () => {
+    URL.revokeObjectURL(ing.src);
+    return [img.width,img.height];
+  }
 }
