@@ -24,15 +24,10 @@ config = {
 // インスタンス作成
 var game = new Phaser.Game(config);
 
-window.addEventListener("resize",() => {
-  if (window_width === window.innerWidth) return
-
-  window_width = window.innerWidth;
-  window_height = window.innerHeight;
-  
-  resize(["background"]);
+function bodyResized() {
   setCanvasConfig();
-});
+  resize(["background"]);
+}
 
 /* ------------------------------- */
 
