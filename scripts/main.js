@@ -1,13 +1,6 @@
-let auto_center;
 let zoom;
 
-if (window.innerWidth <= window.innerHeight / 3 * 4) {
-  zoom = window.innerWidth / 800
-  auto_center = Phaser.Scale.Center.CENTER_VERTICALLY;
-}else{
-  zoom = window.innerHeight / 600;
-  auto_center = Phaser.Scale.Center.CENTER_HORIZONTALLY;
-}
+setZoom();
 
 // 設定用変数 jsonで設定
 let config = {
@@ -26,6 +19,11 @@ let config = {
 // インスタンス作成
 var game = new Phaser.Game(config);
 
+window.addEventListener("resize",() => {
+  setZoom();
+  config["zoom"] = zoom;
+});
+
 /* ------------------------------- */
 
 // 描画
@@ -43,3 +41,11 @@ function update() {
 }
 
 /* ------------------------------- */
+
+function setZoom() {
+  if (window.innerWidth <= window.innerHeight / 3 * 4) {
+    zoom = window.innerWidth / 800
+  }else{
+    zoom = window.innerHeight / 600;
+  }
+}
