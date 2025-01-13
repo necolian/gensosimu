@@ -21,7 +21,7 @@ var game = new Phaser.Game(config);
 
 window.addEventListener("resize",() => {
   setZoom();
-  scene.scale.setZoom(zoom);
+  Phaser.scene.scale.setZoom(zoom);
 });
 
 /* ------------------------------- */
