@@ -32,6 +32,8 @@ function create() {
   //背景を設定
   const background = this.add.image(canvas_width/2, canvas_height/2, "background");
   background.setScale(canvas_width/800,canvas_height/600);
+  const title = this.add.image(canvas_width/2,canvas_height/2,"title");
+  title.setScale(canvas_width/800,canvas_height/600);
   
 }
 
