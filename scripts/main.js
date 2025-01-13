@@ -1,19 +1,24 @@
-var config = new Object;
 let auto_center;
-let canvas_height;
-let canvas_width;
-let window_height = window.innerHeight;
-let window_width = window.innerWidth;
+let zoom;
 
-//キャンバスサイズを調整
-setCanvasConfig();
+if (window.innerWidth < window.innerHeight) {
+  zoom = window.innerWidth / 800
+  auto_center = Phaser.Scale.Center.CENTER_VERTICALLY;
+}else if (window.innerWidth === window.innerHeight) {
+  zoom = window.innerHeight / 600;
+  auto_center = Phaser.Scale.Center.CENTER_BOTH;
+}else{
+  zoom = window.innerHeight / 600;
+  auto_center = Phaser.Scale.Center.CENTER_HORIZONTALLY;
+}
 
 // 設定用変数 jsonで設定
-config = {
+let config = {
   type: Phaser.AUTO,
-  width: canvas_width, // 横サイズ
-  height: canvas_height, // 縦サイズ
-  autoCenter: Phaser.Scale.Center.CENTER_HORIZONTALLY, // 中央に配置
+  width: 800, // 横サイズ
+  height: 600, // 縦サイズ
+  autoCenter: auto_center, // 中央に配置
+  zoom: zoom,
   scene: {
     preload: preload,
     create: create,
@@ -30,10 +35,8 @@ var game = new Phaser.Game(config);
 function create() {
   
   //背景を設定
-  const background = this.add.image(canvas_width/2, canvas_height/2, "background");
-  background.setScale(canvas_width/800,canvas_height/600);
-  const title = this.add.image(canvas_width/2,canvas_height/2,"title");
-  title.setScale(canvas_width/800,canvas_height/600);
+  const background = this.add.image(400, 300, "background");
+  const title = this.add.image(400,300,"title");
   
 }
 
@@ -43,29 +46,3 @@ function update() {
 }
 
 /* ------------------------------- */
-
-function setCanvasConfig () {
-  if (window.innerWidth < window.innerHeight) {
-    canvas_width = window.innerWidth;
-    canvas_height = canvas_width /4 * 3
-    auto_center = Phaser.Scale.Center.CENTER_VERTICALLY;
-  }else if (window.innerWidth === window.innerHeight) {
-    set();
-    auto_center = Phaser.Scale.Center.CENTER_BOTH;
-  }else{
-    set();
-    auto_center = Phaser.Scale.Center.CENTER_HORIZONTALLY;
-  }
-
-  config["width"] = canvas_width;
-  config["height"] = canvas_height;
-  config["autoCenter"] = auto_center;
-
-  alert(JSON.stringify(config));
-
-  function set() {
-    canvas_height = window.innerHeight;
-    canvas_width = canvas_height / 3 * 4;
-  }
-  
-}
