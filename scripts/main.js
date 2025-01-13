@@ -1,12 +1,9 @@
 let auto_center;
 let zoom;
 
-if (window.innerWidth < window.innerHeight) {
+if (window.innerWidth <= window.innerHeight / 3 * 4) {
   zoom = window.innerWidth / 800
   auto_center = Phaser.Scale.Center.CENTER_VERTICALLY;
-}else if (window.innerWidth === window.innerHeight || window.innerWidth < window.innerHeight /3 * 4) {
-  zoom = window.innerWidth / 800;
-  auto_center = Phaser.Scale.Center.CENTER_BOTH;
 }else{
   zoom = window.innerHeight / 600;
   auto_center = Phaser.Scale.Center.CENTER_HORIZONTALLY;
@@ -17,7 +14,7 @@ let config = {
   type: Phaser.AUTO,
   width: 800, // 横サイズ
   height: 600, // 縦サイズ
-  autoCenter: auto_center, // 中央に配置
+  autoCenter: Phaser.Scale.Center.CENTER_BOTH, // 中央に配置
   zoom: zoom,
   scene: {
     preload: preload,
