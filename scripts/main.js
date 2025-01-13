@@ -5,10 +5,10 @@ if (window.innerWidth < window.innerHeight) {
   zoom = window.innerWidth / 800
   auto_center = Phaser.Scale.Center.CENTER_VERTICALLY;
 }else if (window.innerWidth === window.innerHeight) {
-  zoom = window.innerHeight / 600;
+  zoom = window.innerHeight / 800;
   auto_center = Phaser.Scale.Center.CENTER_BOTH;
 }else{
-  zoom = window.innerHeight / 600;
+  zoom = window.innerHeight / 800;
   auto_center = Phaser.Scale.Center.CENTER_HORIZONTALLY;
 }
 
