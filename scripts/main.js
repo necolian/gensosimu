@@ -8,7 +8,7 @@ if (window.innerWidth < window.innerHeight) {
   zoom = window.innerHeight / 600;
   auto_center = Phaser.Scale.Center.CENTER_BOTH;
 }else{
-  zoom = window.innerWidth / 800;
+  zoom = window.innerHeight / 600;
   auto_center = Phaser.Scale.Center.CENTER_HORIZONTALLY;
 }
 
