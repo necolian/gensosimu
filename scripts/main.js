@@ -21,17 +21,23 @@ var game = new Phaser.Game(config);
 
 window.addEventListener("resize",() => {
   setZoom();
-  Phaser.scene.scale.setZoom(zoom);
+  scene.scale.setZoom(zoom);
 });
 
 /* ------------------------------- */
+var background;
+var title;
+var titleversion;
+
 
 // 描画
 function create() {
   
   //背景を設定
-  const background = this.add.image(400, 300, "background");
-  const title = this.add.image(400,300,"title");
+  background = this.add.image(400, 300, "background");
+  title = this.add.image(400,300,"title");
+  title_version = this.add.text(400, 0, `version ${version} `, { fontFamily: '"游ゴシック","メイリオ","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif', fontSize: 16, color: '#000000' });
+
   
 }
 
