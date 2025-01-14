@@ -36,7 +36,7 @@ function create() {
   //背景を設定
   background = this.add.image(400, 300, "background");
   title = this.add.image(400,300,"title");
-  title_version = this.add.text(480, 110, `${version} `, { fontFamily: '"游ゴシック","メイリオ","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif', fontSize: 16, color: '#000000' });
+  title_version = this.add.text(480, 120, `${version} `, { fontFamily: '"游ゴシック","メイリオ","ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif', fontSize: 16, color: '#000000' });
 
   
 }
